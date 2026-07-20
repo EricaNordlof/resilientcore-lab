@@ -1,0 +1,45 @@
+name: resilientcore
+
+topology:
+  nodes:
+    pe1:
+      kind: linux
+      image: quay.io/frrouting/frr:10.2.1
+      binds:
+        - configs/pe1/frr.conf:/etc/frr/frr.conf
+    pe2:
+      kind: linux
+      image: quay.io/frrouting/frr:10.2.1
+      binds:
+        - configs/pe2/frr.conf:/etc/frr/frr.conf
+    p1:
+      kind: linux
+      image: quay.io/frrouting/frr:10.2.1
+      binds:
+        - configs/p1/frr.conf:/etc/frr/frr.conf
+    p2:
+      kind: linux
+      image: quay.io/frrouting/frr:10.2.1
+      binds:
+        - configs/p2/frr.conf:/etc/frr/frr.conf
+    ce-a:
+      kind: linux
+      image: quay.io/frrouting/frr:10.2.1
+      binds:
+        - configs/ce-a/frr.conf:/etc/frr/frr.conf
+    ce-b:
+      kind: linux
+      image: quay.io/frrouting/frr:10.2.1
+      binds:
+        - configs/ce-b/frr.conf:/etc/frr/frr.conf
+
+  links:
+    - endpoints: ["pe1:eth1", "p1:eth1"]
+    - endpoints: ["pe1:eth2", "p2:eth1"]
+    - endpoints: ["pe2:eth1", "p1:eth2"]
+    - endpoints: ["pe2:eth2", "p2:eth2"]
+    - endpoints: ["p1:eth3", "p2:eth3"]
+    - endpoints: ["ce-a:eth1", "pe1:eth3"]
+    - endpoints: ["ce-a:eth2", "pe2:eth3"]
+    - endpoints: ["ce-b:eth1", "pe1:eth4"]
+    - endpoints: ["ce-b:eth2", "pe2:eth4"]

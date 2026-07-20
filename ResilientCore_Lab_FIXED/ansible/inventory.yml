@@ -1,0 +1,17 @@
+all:
+  children:
+    provider_edge:
+      hosts:
+        pe1:
+          ansible_host: 10.255.0.1
+        pe2:
+          ansible_host: 10.255.0.2
+    core:
+      hosts:
+        p1:
+          ansible_host: 10.255.1.1
+        p2:
+          ansible_host: 10.255.1.2
+  vars:
+    ansible_connection: network_cli
+    ansible_network_os: community.network.frr

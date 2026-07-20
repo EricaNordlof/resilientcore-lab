@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: resilientcore-lab
+    runtime: static
+    buildCommand: echo "Static portfolio dashboard - no build required"
+    staticPublishPath: ./dashboard
+    autoDeployTrigger: commit
