@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ResilientCore Lab | Network Operations Dashboard</title>
+  <meta name="description" content="Independent carrier-network portfolio lab showing redundancy, routing, VPN segmentation, automation and operational engineering." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <strong>ResilientCore Lab</strong>
+      <span>Carrier network engineering portfolio</span>
+    </div>
+    <div class="status"><i></i> Lab healthy</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">INDEPENDENT PORTFOLIO LAB</p>
+      <h1>Design. Validate. Automate. Recover.</h1>
+      <p>Provider-style network lab focused on resilient architecture, IS-IS, MPLS/SR concepts, MP-BGP VPN services, automation, documentation and third-line troubleshooting.</p>
+      <div class="chips">
+        <span>IS-IS</span><span>SR-MPLS</span><span>MP-BGP</span><span>L3VPN</span><span>EVPN</span><span>Ansible</span><span>Python</span>
+      </div>
+    </section>
+
+    <section class="metrics" id="metrics"></section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">TOPOLOGY</p>
+          <h2>Redundant provider core</h2>
+        </div>
+        <span class="pill">Dual PE / Dual P</span>
+      </div>
+      <div class="topology">
+        <div class="node ce" id="ce-a">CE-A<small>Customer A</small></div>
+        <div class="node pe" id="pe1">PE1<small>Provider Edge</small></div>
+        <div class="node p" id="p1">P1<small>Core</small></div>
+        <div class="node p" id="p2">P2<small>Core</small></div>
+        <div class="node pe" id="pe2">PE2<small>Provider Edge</small></div>
+        <div class="node ce" id="ce-b">CE-B<small>Customer B</small></div>
+        <svg viewBox="0 0 1000 360" preserveAspectRatio="none" aria-hidden="true">
+          <line x1="110" y1="105" x2="330" y2="95"/><line x1="110" y1="105" x2="330" y2="265"/>
+          <line x1="890" y1="255" x2="670" y2="95"/><line x1="890" y1="255" x2="670" y2="265"/>
+          <line x1="330" y1="95" x2="500" y2="70"/><line x1="330" y1="95" x2="500" y2="290"/>
+          <line x1="670" y1="265" x2="500" y2="70"/><line x1="670" y1="265" x2="500" y2="290"/>
+          <line x1="500" y1="70" x2="500" y2="290"/>
+        </svg>
+      </div>
+    </section>
+
+    <section class="two-col">
+      <article class="panel">
+        <p class="eyebrow">SERVICE HEALTH</p>
+        <h2>VPN services</h2>
+        <div id="services" class="list"></div>
+      </article>
+      <article class="panel">
+        <p class="eyebrow">INCIDENT ENGINEERING</p>
+        <h2>Latest simulated incident</h2>
+        <div id="incident" class="incident"></div>
+      </article>
+    </section>
+
+    <section class="panel">
+      <p class="eyebrow">ENGINEERING CONTROLS</p>
+      <h2>Change acceptance gates</h2>
+      <div class="controls">
+        <div><b>01</b><strong>Pre-check</strong><span>Adjacency, routes, alarms, service baseline.</span></div>
+        <div><b>02</b><strong>Controlled scope</strong><span>One change domain at a time with rollback ready.</span></div>
+        <div><b>03</b><strong>Post-check</strong><span>IGP, BGP, VRFs, path redundancy and customer probes.</span></div>
+        <div><b>04</b><strong>Evidence</strong><span>Document result, deviations and preventive actions.</span></div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Built by Erica Nordlöf as an independent networking portfolio project. Open tooling is used to demonstrate concepts without claiming production operator access.</p>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
